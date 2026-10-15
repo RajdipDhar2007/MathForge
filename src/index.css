@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+}
+
+/* Slim, unobtrusive scrollbars that fit the instrument-panel aesthetic. */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(79, 227, 193, 0.35) transparent;
+}
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(79, 227, 193, 0.35);
+  border-radius: 999px;
+}
+
+/* Respect reduced-motion preferences by disabling decorative animation. */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/*
+ * Light theme overrides.
+ * The app is built dark-first (per the brief), with glass panels sitting on
+ * a deep indigo background. Toggling to light mode re-skins those same
+ * glass surfaces onto a bright backdrop rather than maintaining a fully
+ * separate component set.
+ */
+:root[data-theme='light'] body {
+  background-color: #f1f5f9;
+}
+:root[data-theme='light'] .bg-panel-950 {
+  background-color: #f1f5f9 !important;
+  color: #1e293b;
+}
+:root[data-theme='light'] .bg-panel-900\/60,
+:root[data-theme='light'] .bg-panel-900\/50 {
+  background-color: rgba(255, 255, 255, 0.75) !important;
+  color: #1e293b;
+}
+:root[data-theme='light'] .bg-panel-800\/70,
+:root[data-theme='light'] .bg-panel-800\/50,
+:root[data-theme='light'] .bg-panel-800\/40 {
+  background-color: rgba(226, 232, 240, 0.9) !important;
+  color: #1e293b;
+}
+:root[data-theme='light'] .bg-panel-700\/80,
+:root[data-theme='light'] .bg-panel-700\/60 {
+  background-color: rgba(203, 213, 225, 0.95) !important;
+}
+:root[data-theme='light'] .text-slate-100,
+:root[data-theme='light'] .text-slate-50,
+:root[data-theme='light'] .text-slate-200 {
+  color: #1e293b !important;
+}
+:root[data-theme='light'] .text-slate-400,
+:root[data-theme='light'] .text-slate-500 {
+  color: #64748b !important;
+}
+:root[data-theme='light'] .bg-panel-950\/85 {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  color: #1e293b;
+}
+:root[data-theme='light'] .text-slate-300 {
+  color: #475569 !important;
+}
+:root[data-theme='light'] .border-white\/10,
+:root[data-theme='light'] .border-white\/5 {
+  border-color: rgba(15, 23, 42, 0.08) !important;
+}
